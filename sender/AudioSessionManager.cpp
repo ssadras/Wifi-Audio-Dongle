@@ -17,6 +17,9 @@ AudioSessionManager::AudioSessionManager()
         : deviceEnumerator(nullptr), device(nullptr), sessionManager(nullptr) {
     CoInitialize(NULL);
 
+    const CLSID CLSID_MMDeviceEnumerator = __uuidof(MMDeviceEnumerator);
+    const IID IID_IMMDeviceEnumerator = __uuidof(IMMDeviceEnumerator);
+
     CoCreateInstance(
             CLSID_MMDeviceEnumerator, NULL,
             CLSCTX_ALL, IID_IMMDeviceEnumerator,
